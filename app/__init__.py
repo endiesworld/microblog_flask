@@ -6,8 +6,8 @@ from app.core import global_config
 
 app = Flask(__name__)
 app.config.from_object(global_config.GlobalConfig)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+database = SQLAlchemy(app)
+migrate = Migrate(app, database)
     
 
-from app import routes, models
+from app import  routes, models

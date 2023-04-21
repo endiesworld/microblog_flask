@@ -1,7 +1,7 @@
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-sqlite_db = 'sqlite://' + os.path.join(basedir, 'app.db')
+basedir = os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+sqlite_db = 'sqlite:///' + os.path.join(basedir, 'db','app.db')
 
 class GlobalConfig(object):
     """Global configurations."""
