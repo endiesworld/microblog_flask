@@ -6,7 +6,7 @@ from app import app
 @app.route('/index')
 @login_required
 def index():
-    user = {"username": "Emmanuel"}
+
     posts = [
         {
             'author': {"username": "Adaobi"},
@@ -17,5 +17,5 @@ def index():
             'body': "How to build a game with scratch"
         }
     ]
-    return render_template('index.html', title="Home", user=user, posts=posts)
+    return render_template('index.html', title="Home Page", posts=posts)
         
