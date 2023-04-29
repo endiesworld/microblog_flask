@@ -1,12 +1,11 @@
 from flask import render_template
 from flask_login import login_required
-from app import app
+from app.main import bp
 
-@app.route('/')
-@app.route('/index')
+@bp.route('/')
+@bp.route('/index')
 @login_required
 def index():
-
     posts = [
         {
             'author': {"username": "Adaobi"},

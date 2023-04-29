@@ -5,7 +5,7 @@ from app.models import User
 
 class SignUpForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
-    username = StringField("Email", validators=[DataRequired(), Email()])
+    email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     password_2 = PasswordField("Repeat Password", validators=[DataRequired(), EqualTo('password')])
     
@@ -20,3 +20,9 @@ class SignUpForm(FlaskForm):
         user = User.query.filter_by(username=email.data).first()
         if user is not None:
             raise ValidationError('email address already exit. ')
+        
+class LoginForm(FlaskForm):
+    username = StringField("Username", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
+    remember_me = BooleanField("Remember Me")
+    submit = SubmitField("Sign in")
